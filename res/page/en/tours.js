@@ -60,7 +60,7 @@ template: `
     <p><i>timer</i><span class="bold black-text large-text" v-text="tour.time"></span></p>
   </div>
 
-    <nav class="no-margin absolute bottom center">
+    <nav class="no-margin">
     <RouterLink class="button responsive no-round" :to="'/en/tours/' + tour.id">Details</RouterLink>
     </nav>
 </article>
