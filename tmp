@@ -1,0 +1,23 @@
+img slider 
+
+
+
+<div class="tp-round padding border no-padding  medium-height">
+  <img class="responsive top-round" :src="$store.pics +'tours/'+ tour.imgs[picIndex]" loading="lazy">
+  <div class="absolute middle left large-padding white-text">    
+    <button class="primary left-round large" @click="picIndex > 0 && picIndex--"><i>arrow_back</i></button>
+  </div>
+
+  <div class="absolute middle right large-padding white-text ">    
+    <button class="primary right-round large" @click="picIndex < tour.imgs.length - 1 && picIndex++"><i>arrow_forward</i></button> 
+    </div>
+
+  <div class="absolute bottom center"> 
+    <nav>
+      <button v-for="(img, index) in tour.imgs" class="transparent" :class="picIndex === index ? 'large square border ' : 'small circle'" @click="picIndex = index">
+        <img class="responsive" :src="$store.pics +'tours/'+ img" loading="lazy">
+      </button>
+
+    </nav>
+  </div>
+</div>
