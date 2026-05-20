@@ -2,7 +2,7 @@
 export default {
 
 data() {return {
-  booking: { name: "", hotel: "", date: "", adult: 1, child: 0, infant: 0, note: "" },
+  booking: { name: "", hotel: "", room: "", date: "", adult: 1, child: 0, infant: 0, note: "" ,method: "whatsapp"},
 }},
 
 
@@ -13,23 +13,41 @@ computed: {
 tour() { return this.$store.tours.filter(T => T.id === this.$route.params.id)[0] },
 
 
-message() { return `
-Website_Booking:
-Tour:${this.tour.title}
-Name:${this.booking.name}
-Hotel:${this.booking.hotel}
-Checkout:${this.booking.date}
-Adults:${this.booking.adult}
-Children:${this.booking.child}
-Infants:${this.booking.infant}
-Notes:${this.booking.note}`
+message() { return encodeURI( `Website Booking:
+
+Tour:  ${this.tour.title}
+
+Name:  ${this.booking.name}
+
+Hotel:  ${this.booking.hotel}
+Room:  ${this.booking.room}
+Checkout:  ${this.booking.date}
+
+Adults:  ${this.booking.adult}
+kids:  ${this.booking.child} 
+Infants:  ${this.booking.infant}
+
+Notes:  ${this.booking.note}`)
 },
 
+
+whatsapp() { 
+  if (this.$store.device.type === 'mobile') { return "whatsapp://send?phone=" + this.$store.WAnumber + "&text=" + this.message} 
+  else { return "https://wa.me/?phone=" + this.$store.WAnumber + "&text=" + this.message}
+},
+
+mail() { return "mailto:" + this.$store.mail + "?subject=website%20booking&body=" + this.message},
 
 }, //computed
 
 
 methods: {
+
+
+send(){
+if (this.booking.method === 'whatsapp') { window.open(this.whatsapp)}
+else { window.open(this.mail)}
+},
 
 },//methods
 
@@ -60,7 +78,12 @@ template: `
 
 <div class="fill padding">
    <h3 class="h5 bold" v-text="tour.title"></h3>
-   <p><i>timer</i> <span v-text="tour.time"></span></p>
+   <div class="row">
+   <p class="large-text bold"><span class="green-text" v-text="tour.price"></span> <span>PP</span></p>
+   <p><i>timer</i> <b v-text="tour.time"></b></p>
+   <p class="primary-text"><i>location_on</i> <b v-text="tour.location"></b></p>
+
+   </div>
 </div>
 
 
@@ -78,6 +101,7 @@ template: `
 </div>
 </div>
 
+<div class="large-space"></div>
 </dialog>
 
 
@@ -87,8 +111,7 @@ template: `
 
 
 
-<h3>Where / Meeting point:
-</h3>
+<h3>Meeting point:</h3>
 <p>Hotel pick-up service is included. Please provide your hotel information, your email and phone number at the time of booking.</p>
 
 
@@ -159,14 +182,123 @@ template: `
 
 
 
-<div v-if="$store.tours.filter(tourItem => tourItem.id !== tour.id && tourItem.tags?.some(tag => tour.tags?.includes(tag))).length">
+
+
+<div class="large-space"></div>
+<nav class="bottom fixed">
+<button data-ui="#booking" class="responsive no-round primary extra small-elevate">
+  <i>calendar_today</i><span>Contact Us now</span>
+</button>
+</nav>
+<div class="large-space"></div>
+
+
+
+
+
+
+<dialog :class="$store.device.display !== 'large' ? 'max' : ''" id="booking">
+  <header class="row padding fixed">
+   <div class="max"><h5>Booking</h5></div>
+    <button class="border" data-ui="#booking"><i>close</i></button>
+  </header>
+ 
+
+  <div class="tabs">
+    <a :class="booking.method === 'whatsapp' ? 'active' : ''" @click="booking.method = 'whatsapp'"> <i><img :src="$store.pics + 'svg/whatsapp.svg'" alt="icon"></i> <span>Use whatsapp</span></a>
+    <a :class="booking.method === 'mail' ? 'active' : ''" @click="booking.method = 'mail'"> <i>mail</i> <span>Use Email</span></a>
+  </div>
+
+  
+
+
+<form class="padding" @submit.prevent="send()">
+
+<div class="field label prefix border">
+  <i>edit</i>
+  	<input required v-model="booking.name" type="text">
+  <label>Name</label>
+</div>
+
+<div class="field label prefix border">
+  <i>hotel</i>
+  	<input required v-model="booking.hotel" type="text">
+  <label>Hotel</label>
+</div>
+
+
+<div class="field label prefix border">
+  <i>hotel</i>
+  	<input required v-model="booking.room" type="number">
+  <label>Room Number</label>
+</div>
+
+<div class="field label prefix border">
+  <i>today</i>
+  <input type="date" v-model="booking.date">
+  <label>Checkout Date</label>
+</div>
+
+
+<div class="field label prefix border">
+  <i>person</i>
+  	<input required v-model="booking.adult" type="number">
+  <label>Adults</label>
+</div>
+
+<div class="field label prefix border">
+  <i>boy</i>
+  	<input v-model="booking.child" type="number">
+  <label>Children</label>
+</div>
+
+<div class="field label prefix border">
+  <i>breastfeeding</i>
+  	<input v-model="booking.infant" type="number">
+  <label>Infants</label>
+</div>
+
+
+  <div class="field textarea label border">
+	<textarea v-model="booking.note"></textarea>
+	<label>Notes</label>
+</div>
+  
+  
+  
+<nav class="row">
+<button class="border no-round black-text"  type="submit" value="submit">
+<i v-show="booking.method === 'whatsapp'"><img :src="$store.pics + 'svg/whatsapp.svg'" alt="icon"></i>
+<i v-show="booking.method === 'mail'" class="primary-text" >mail</i>
+<span>Send</span>
+</button>
+<button class="border no-round black-text" type="reset" value="reset"><i>close</i> clear</button> 
+</nav>
+
+
+</form>
+
+
+
+
+
+<div class="large-space"></div>
+
+</dialog>
+
+
+
+
+
+
+<div v-if="$store.tours.filter(t => t.id !== tour.id && t.tags.some(tag => tour.tags.includes(tag))).length">
 
 <div class="large-space"></div>
 
 <h3 class="small">Related Tours</h3>
-<div class="row scroll">
+<div class="grid">
 
-<article class="no-padding no-round small-width no-elevate" v-for="t in $store.tours.filter(tourItem => tourItem.id !== tour.id && tourItem.tags?.some(tag => tour.tags?.includes(tag) ))" :key="t.id">
+<article class="s6 m4 l3 no-padding no-round small-width no-elevate" v-for="t in $store.tours.filter(tourItem => tourItem.id !== tour.id && tourItem.tags?.some(tag => tour.tags?.includes(tag) ))" :key="t.id">
   <img class="responsive medium" :src="$store.pics +'tours/'+ t.imgs[0]" loading="lazy">
   <div class="padding">
     <RouterLink class="link" :to="'/en/tours/' + t.id">
@@ -179,157 +311,6 @@ template: `
 </div>
 
 
-
-<nav class="bottom fixed small-padding">
-<button data-ui="#booking" class="responsive no-round primary extra small-elevate">
-  <i>calendar_today</i><span>book now</span>
-</button>
-</nav>
-
-
-<dialog :class="$store.device.display !== 'large' ? 'max' : ''" id="booking">
-  <header class="row padding fixed">
-   <div class="max"><h5>Booking</h5></div>
-    <button class="border" data-ui="#booking"><i>close</i></button>
-  </header>
- <div>
-
-
-
-<div>
-  <div class="tabs">
-    <a data-ui="#booking-whatssapp" class="active"> <i><img src="/res/pics/svg/whatsapp.svg" alt="icon"></i> <span>Use whatsapp</span></a>
-    <a data-ui="#booking-mail"> <i>mail</i> <span>Use Email</span></a>
-  </div>
-
-<div id="booking-whatssapp" class="page padding active">
-<form class="padding" :action="$store.device.type === 'mobile' ? 'whatsapp://send' : 'https://wa.me/'" target="_blank">
-  	<input name="phone" v-model="$store.WAnumber" type="hidden">
-  	<input name="text" v-model="message" type="hidden">
-
-<div class="field label prefix border">
-  <i>edit</i>
-  	<input required v-model="booking.name" type="text">
-  <label>Name</label>
-</div>
-
-<div class="field label prefix border">
-  <i>hotel</i>
-  	<input required v-model="booking.hotel" type="text">
-  <label>Hotel</label>
-</div>
-
-<div class="field label prefix border">
-  <i>today</i>
-  <input type="date" v-model="booking.date">
-  <label>Date</label>
-</div>
-
-
-<div class="field label prefix border">
-  <i>person</i>
-  	<input required v-model="booking.adult" type="number">
-  <label>Adults</label>
-</div>
-
-<div class="field label prefix border">
-  <i>boy</i>
-  	<input v-model="booking.child" type="number">
-  <label>Children</label>
-</div>
-
-<div class="field label prefix border">
-  <i>breastfeeding</i>
-  	<input v-model="booking.infant" type="number">
-  <label>Infants</label>
-</div>
-
-  <div class="field textarea label border">
-	<textarea v-model="booking.note"></textarea>
-	<label>Notes</label>
-</div>
-  
-  
-  
-<div class="row">
-<button class="border no-round black-text" type="submit" value="submit"><i><img src="/res/pics/svg/whatsapp.svg" alt="icon"></i>Send</button>
-<button type="reset" value="reset" class="border"><i>close</i> clear</button> 
-</div>
-
-
-</form>
-</div>
-
- 
-
-
-
-
-<div id="booking-mail" class="page padding">
-<form class="padding" :action="'mailto:' + $store.mail" target="_blank">
-  	<input name="subject" value="website tour booking" type="hidden">
-  	<input name="body" v-model="message" type="hidden">
-
-
-<div class="field label prefix border">
-  <i>edit</i>
-  	<input required v-model="booking.name" type="text">
-  <label>Name</label>
-</div>
-
-<div class="field label prefix border">
-  <i>hotel</i>
-  	<input required v-model="booking.hotel" type="text">
-  <label>Hotel</label>
-</div>
-
-<div class="field label prefix border">
-  <i>today</i>
-  <input type="date" v-model="booking.date">
-  <label>Date</label>
-</div>
-
-
-<div class="field label prefix border">
-  <i>person</i>
-  	<input required v-model="booking.adult" type="number">
-  <label>Adults</label>
-</div>
-
-<div class="field label prefix border">
-  <i>boy</i>
-  	<input v-model="booking.child" type="number">
-  <label>Children</label>
-</div>
-
-<div class="field label prefix border">
-  <i>breastfeeding</i>
-  	<input v-model="booking.infant" type="number">
-  <label>Infants</label>
-</div>
-
-
-  <div class="field textarea label border">
-	<textarea v-model="booking.note"></textarea>
-	<label>Notes</label>
-</div>
-  
-  
-  
-<div class="row">
-<button class="border no-round black-text"  type="submit" value="submit" class=""><i>mail</i>Send</button>
-<button type="reset" value="reset" class="border"><i>close</i> clear</button> 
-</div>
-
-
-</form>
-</div>
-
-</div>
-
-<div class="large-space"></div>
-
-</dialog>
 
 
 

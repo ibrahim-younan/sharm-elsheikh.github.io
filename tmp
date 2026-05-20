@@ -21,3 +21,16 @@ img slider
     </nav>
   </div>
 </div>
+
+
+mail
+<form class="padding" :action="'" target="_blank">
+  	<input name="subject" value="website tour booking" type="hidden">
+  	<input name="body" v-model="message" type="hidden">
+
+
+
+whatsapp
+<form class="padding" :action="$store.device.type === 'mobile' ? 'whatsapp://send' : 'https://wa.me/'" target="_blank">
+  	<input name="phone" v-model="$store.WAnumber" type="hidden">
+  	<input name="text" v-model="message" type="hidden">

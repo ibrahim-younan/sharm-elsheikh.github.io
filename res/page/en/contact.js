@@ -1,8 +1,8 @@
 export default {
 
-components: {
-  'team': { props: ['img','name','description','phone','whatsapp','mail'],
-  template: `
+components: { 
+  
+'team': { props: ['img','name','description','phone','whatsapp','mail'], template: `
 <article class="s12 m6 no-round">
   <div class="row">
     <img class="circle large" :src="img" loading="lazy">
@@ -13,7 +13,7 @@ components: {
   </div>
   <nav>
     <a v-if="phone" class="button border" :href="'tel:' + phone"><i>call</i></a>
-    <a v-if="whatsapp" class="button border" :href="'whatsapp://send?phone=' + whatsapp"><i><img src="/res/pics/svg/whatsapp.svg" alt="icon"></i></a>
+    <a v-if="whatsapp" class="button border" :href="'whatsapp://send?phone=' + whatsapp"><i><img :src="$store.pics + 'svg/whatsapp.svg'" alt="icon"></i></a>
     <a v-if="mail" class="button border" :href="'mailto://' + mail"><i>mail</i></a>
   </nav>
 </article>
@@ -26,7 +26,7 @@ template: `
 
  <nav class="">   
  <a class="button border" :href="'tel:' + $store.WAnumber"><i>phone</i></a>
- <a class="button border" :href="'whatsapp://send?phone=' + $store.WAnumber"><i><img src="/res/pics/svg/whatsapp.svg" alt="icon"></i></a>
+ <a class="button border" :href="'whatsapp://send?phone=' + $store.WAnumber"><i><img :src="$store.pics + 'svg/whatsapp.svg'" alt="icon"></i></a>
  <a class="button border" href=""><i>mail</i><span>Email</span></a>
 </nav>
 

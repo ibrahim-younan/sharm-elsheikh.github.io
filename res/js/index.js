@@ -10,7 +10,7 @@ const router = createRouter({
 history: createWebHashHistory(), 
 scrollBehavior(to, from) { return {top: 0}  },
 routes: [
-{ path: '/',  component: () => import('../page/home.js') },
+{ path: '/', redirect: '/en/tours' },
 
   {path: '/en', component: () => import('../page/en.js'), redirect: '/en/tours' ,children: [
     {path: 'tours', component: () => import('../page/en/tours.js')},
@@ -24,12 +24,6 @@ routes: [
   ]},
 
 
-
-
-  
-
-
-
 {path: '/:pathMatch(.*)*', component: () => import('../page/404.js')},
 ],
 
@@ -37,7 +31,7 @@ routes: [
 
 const store = reactive({
 
- device: {type:"", display:"", os:"", browser:""}, 
+device: {type:"", display:"", os:"", browser:""}, 
 
 title: "Travco Tours",
 
@@ -56,7 +50,7 @@ pics: "res/pics/",
 
 
 
-const app = createApp({})
+const app = createApp()
 app.config.globalProperties.$store =  store;
 app.use(router)
 app.mount('#app')

@@ -53,11 +53,10 @@ template: `
   
   <div class="mediu-padding">
     <h5 class="large-text bold" v-text="tour.title"></h5>
-    <p v-if="description" v-text="tour.description"></p>
   </div>
 
   <div class="row small-padding no-margin">
-    <p class="max"><span class="bold green-text large-text" v-text="tour.price"></span><i class="green-text">euro</i><b>PP</b></p>
+    <p class="max"><span class="bold green-text large-text" v-text="tour.price"></span> <b>PP</b></p>
     <p><i>timer</i><span class="bold black-text large-text" v-text="tour.time"></span></p>
   </div>
 

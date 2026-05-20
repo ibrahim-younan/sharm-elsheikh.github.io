@@ -1,24 +1,17 @@
 export default {
 template: `
 
+<form class="padding" @submit.prevent="send()">
+
+
+
 <nav>
-  <div class="center-align">
-    <button class="circle small">
-      <i>done</i>
-    </button>
-    <div class="small-margin">Previous</div>
-  </div>
-  <hr class="max">
-  <div class="center-align">
-    <button class="circle small">2</button>
-    <div class="small-margin">Current</div>
-  </div>
-  <hr class="max">
-  <div class="center-align">
-    <button class="circle small" disabled>3</button>
-    <div class="small-margin">Next</div>
-  </div>
+
+<button class="border no-round black-text"  type="submit" value="submit"><i></i><span>Send</span></button>
 </nav>
+
+
+</form>
 
 
 `//template

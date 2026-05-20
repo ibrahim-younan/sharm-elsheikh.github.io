@@ -38,44 +38,127 @@ tours: [
       "248400/5.avif", 
       "248400/6.avif", 
     ],
-    tags: ["Sea", "Snorkling", "Nature"],
+    tags: ["Sea", "Snorkling", "Nature", "Family Friendly"],
+    price: "83€",
     time: "6 hours",
-    price: "83",
-    familyFriendly: true
+    location: "Sharm Elshiekh",
   },
+ 
+
   {
-    id: "778899",
-    title: "Tokyo Adventure",
-    description: "Discover the unique modern and ancient parts of Tokyo.",
-    imgs: ["IMG_2282.WEBP", "IMG_2283.WEBP"],
-    tags: ["History", "Culture", "Museum"],
-    time: "Adventure",
-    price: "Adventure",
-    familyFriendly: true
+    id: "665566",
+    title: "Tiran Island VIP cruise experience with snorkelling and lunch",
+    description: `
+      Get the full VIP treatments on this ultimate snorkelling cruise. 
+      Set sail in luxury to three epic snorkelling spots in Ras Mohammed National Park at Tiran Island. 
+      It’s home to over 200 coral species and 1,000 fish species
+      – you’re in for a real treat 
+      – and a buffet lunch is also on the cards. 
+      Your adventure begins with a hotel pickup 
+      – and the option to rent some gear 
+      – towards the Marina. 
+      Jump aboard the luxurious boat and let the crew and captain take care of the rest. 
+      Drink up the views and catch some rays as you cruise along the Red Sea and Gulf of Aqaba, 
+      heading towards Tiran Island. About 90 minutes later, 
+      you’ll anchor down at the first snorkel spot. Dive in and join the underwater party 
+      – exotic fish and dazzling coral reefs are the real showstoppers. 
+      Hop back on the boat for more sun-soaked fun, 
+      sailing to the next stellar snorkelling spot. 
+      Snorkelling is hungry work, so you’ll get to tuck into the fresh-cooked lunch with chicken, prawns, rice, pasta, and salad on the menu. 
+      After refuelling, unwind and enjoy some pleasant sailing before heading to the final snorkelling spot and gliding back towards the marina and Sharm El Sheikh.`,
+    included: ["National Park entrance fee", "Lunch", "Guided tour", "Water", "Transportation in air-conditioned vehicle", "Hotel pick-up and drop-off", "Lifejacket", "Coffee or tea", "Soft drinks", "Insurance"],
+    notIncluded:["Mask, snorkel and fins"],
+    imgs: [
+      "248400/1.avif", 
+      "248400/2.avif", 
+      "248400/3.avif", 
+      "248400/4.avif", 
+      "248400/5.avif", 
+      "248400/6.avif", 
+    ],
+    tags: ["Sea", "Snorkling", "Nature", "Family Friendly"],
+    price: "83€",
+    time: "6 hours",
+    location: "Sharm Elshiekh",
   },
 
-{
-    id: "7788499",
-    title: "cairo Adventure",
-    description: "Discover the unique modern and ancient parts of Tokyo.",
-    imgs: ["IMG_2287.WEBP", "IMG_2288.WEBP","IMG_2288.WEBP","IMG_2288.WEBP","IMG_2288.WEBP"],
-    tags: ["Luxury", "Relaxation", "Spa"],
-    time: "Adventure",
-    price: "Adventure",
-    familyFriendly: true
+
+  {
+    id: "665567",
+    title: "Tiran Island VIP cruise experience with snorkelling and lunch",
+    description: `
+      Get the full VIP treatments on this ultimate snorkelling cruise. 
+      Set sail in luxury to three epic snorkelling spots in Ras Mohammed National Park at Tiran Island. 
+      It’s home to over 200 coral species and 1,000 fish species
+      – you’re in for a real treat 
+      – and a buffet lunch is also on the cards. 
+      Your adventure begins with a hotel pickup 
+      – and the option to rent some gear 
+      – towards the Marina. 
+      Jump aboard the luxurious boat and let the crew and captain take care of the rest. 
+      Drink up the views and catch some rays as you cruise along the Red Sea and Gulf of Aqaba, 
+      heading towards Tiran Island. About 90 minutes later, 
+      you’ll anchor down at the first snorkel spot. Dive in and join the underwater party 
+      – exotic fish and dazzling coral reefs are the real showstoppers. 
+      Hop back on the boat for more sun-soaked fun, 
+      sailing to the next stellar snorkelling spot. 
+      Snorkelling is hungry work, so you’ll get to tuck into the fresh-cooked lunch with chicken, prawns, rice, pasta, and salad on the menu. 
+      After refuelling, unwind and enjoy some pleasant sailing before heading to the final snorkelling spot and gliding back towards the marina and Sharm El Sheikh.`,
+    included: ["National Park entrance fee", "Lunch", "Guided tour", "Water", "Transportation in air-conditioned vehicle", "Hotel pick-up and drop-off", "Lifejacket", "Coffee or tea", "Soft drinks", "Insurance"],
+    notIncluded:["Mask, snorkel and fins"],
+    imgs: [
+      "248400/1.avif", 
+      "248400/2.avif", 
+      "248400/3.avif", 
+      "248400/4.avif", 
+      "248400/5.avif", 
+      "248400/6.avif", 
+    ],
+    tags: ["Sea", "Snorkling", "Nature", "Family Friendly"],
+    price: "83€",
+    time: "6 hours",
+    location: "Sharm Elshiekh",
   },
 
 
-{
-    id: "77838499",
-    title: "cairo Adventure",
-    description: "Discover the unique modern and ancient parts of Tokyo.",
-    imgs: ["IMG_2287.WEBP", "IMG_2288.WEBP"],
-    tags: ["Luxury", "Relaxation", "Spa"],
-    time: "Adventure",
-    price: "Adventure",
-    familyFriendly: true,
-  }
+  {
+    id: "665568",
+    title: "Tiran Island VIP cruise experience with snorkelling and lunch",
+    description: `
+      Get the full VIP treatments on this ultimate snorkelling cruise. 
+      Set sail in luxury to three epic snorkelling spots in Ras Mohammed National Park at Tiran Island. 
+      It’s home to over 200 coral species and 1,000 fish species
+      – you’re in for a real treat 
+      – and a buffet lunch is also on the cards. 
+      Your adventure begins with a hotel pickup 
+      – and the option to rent some gear 
+      – towards the Marina. 
+      Jump aboard the luxurious boat and let the crew and captain take care of the rest. 
+      Drink up the views and catch some rays as you cruise along the Red Sea and Gulf of Aqaba, 
+      heading towards Tiran Island. About 90 minutes later, 
+      you’ll anchor down at the first snorkel spot. Dive in and join the underwater party 
+      – exotic fish and dazzling coral reefs are the real showstoppers. 
+      Hop back on the boat for more sun-soaked fun, 
+      sailing to the next stellar snorkelling spot. 
+      Snorkelling is hungry work, so you’ll get to tuck into the fresh-cooked lunch with chicken, prawns, rice, pasta, and salad on the menu. 
+      After refuelling, unwind and enjoy some pleasant sailing before heading to the final snorkelling spot and gliding back towards the marina and Sharm El Sheikh.`,
+    included: ["National Park entrance fee", "Lunch", "Guided tour", "Water", "Transportation in air-conditioned vehicle", "Hotel pick-up and drop-off", "Lifejacket", "Coffee or tea", "Soft drinks", "Insurance"],
+    notIncluded:["Mask, snorkel and fins"],
+    imgs: [
+      "248400/1.avif", 
+      "248400/2.avif", 
+      "248400/3.avif", 
+      "248400/4.avif", 
+      "248400/5.avif", 
+      "248400/6.avif", 
+    ],
+    tags: ["Sea", "Snorkling", "Nature", "Family Friendly"],
+    price: "83€",
+    time: "6 hours",
+    location: "Sharm Elshiekh",
+  },
+
+
 
 ],
 
@@ -135,11 +218,28 @@ async copy(text) {
 },
     
     
-async share(name, text) {
+async sshare(name, text) {
         if (!navigator.share) { ui("#share"); return; };
         try { await navigator.share({ title: name, url: text }) }
         catch (error) { console.warn("Share canceled:", error) }
 },
+
+
+
+async share(name, text) {
+  if (!navigator.share) {
+    ui("#share");
+    return;
+  }
+  try {
+    await navigator.share({ title: name, url: text });
+  } catch (error) {
+    console.warn("Share canceled:", error);
+  }
+},
+
+
+
 
 }, //methods
 
@@ -171,7 +271,6 @@ mounted() {
 
 template: `
 
-
 <header class="fixed elevate fill">
   <nav>
     <RouterLink v-show="device.display === 'large'" class="button border round transparent" to="/en/"><i>home</i></RouterLink>
@@ -184,7 +283,7 @@ template: `
       <button class="border round  transparent"> <i>more_vert</i></button>
       <menu class="left no-wrap">
       
-        <li v-if="device.type === 'mobile'" @click="share('', window.location.origin + $route.fullPath)"><i>share</i><span>share</span></li>
+        <li v-if="device.type === 'mobile'" @click="share('tours', window.location.origin + $route.fullPath)"><i>share</i><span>share</span></li>
         <li><RouterLink to="/en/about/"><i>info</i><span>About Us</span></RouterLink></li>
       </menu>
     </div>
@@ -233,6 +332,4 @@ template: `
 
 
 `//template
-};
-
-
+}
